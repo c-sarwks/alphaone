@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Menu principal sin usuario</title>
+    <meta name="viewport" content="width=device-width, user-scalable=yes,
+    initial-scale=1.0, max imum-scale=3.0, minimun-scale=1.0">
+    <link rel="stylesheet" href="Styles/Style.css">
+    <style type="text/css">
+
+        .group__title{font-family: 'Pacifico', cursive;text-align: center;font-weight: 300;
+        font-size: 1.8em;margin: 30px; margin-block-end: 50px;}
+
+        .products__img{width: 300px; height: 250px; float: left; margin-left: 15px;}
+
+        .products__price{font-size: 1.3em;padding-top: 10px; float: left;
+        padding-left: 50px;}
+
+        .price1{padding-right: 40px;}
+        .price2{padding-right: 40px;}
+        .price3{padding-right: 20px;}
+
+        .products__info{font: 1.5e;color: green;font-weight: bold; 
+        position: relative; top:40px; right:1100px;float: left;}
+
+       
+        .info2{right: 780px;top: 15px;}
+        .info3{left: 760px; top: -10px;}
+        .info4{left: 1000px; top: -10px;}
+
+        .products{margin-top: 80px;}
+
+        .submenu{margin-block-end: -190px;}
+        
+        .main-footer{margin-top: 400px;}
+        .menu__link--contacto{margin-right: 659px;}
+        a[name="Inicio"] {left:-5px;margin-right: 10px;}
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    
+    <script>
+    var current = 0;
+    var imagenes = new Array();
+     
+    $(document).ready(function() {
+        var numImages = 6;
+        if (numImages <= 3) {
+            $('.right-arrow').css('display', 'none');
+            $('.left-arrow').css('display', 'none');
+        }
+     
+        $('.left-arrow').on('click',function() {
+            if (current > 0) {
+                current = current - 1;
+            } else {
+                current = numImages - 3;
+            }
+     
+            $(".carrusel").animate({"left": -($('#product_'+current).position().left)}, 600);
+     
+            return false;
+        });
+     
+        $('.left-arrow').on('hover', function() {
+            $(this).css('opacity','0.5');
+        }, function() {
+            $(this).css('opacity','1');
+        });
+     
+        $('.right-arrow').on('hover', function() {
+            $(this).css('opacity','0.5');
+        }, function() {
+            $(this).css('opacity','1');
+        });
+     
+        $('.right-arrow').on('click', function() {
+            if (numImages > current + 3) {
+                current = current+1;
+            } else {
+                current = 0;
+            }
+     
+            $(".carrusel").animate({"left": -($('#product_'+current).position().left)}, 600);
+     
+            return false;
+        }); 
+     });
+    </script>
+</head>
+
+<body>
+    <header class="main-header">  
+         <h1 class="title">ALFA-ONE</h1>
+    </header>
+    <nav class="main-nav">
+        <div class="container container--flex">
+           <span class="opciones-menu" id="btnmenu"></span> 
+           <ul class="menu" id="menu">
+               <li class="menu__item"><a href="" class="menu__link menu__link--select" name="Inicio">Inicio</a></li>
+               <li class="menu__item"><a href="productos.html" class="menu__link">Categorias</a></li>
+               <li class="menu__item"><a href="" class="menu__link menu__link--contacto">Devoluciones</a></li>
+               <li class="menu__item"><a href="login.html" class="menu__link menu__link--login">Login</a></li>
+               <li class="menu__item"><a href="signUp.html" class="menu__link menu__link--singUp">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="carrusel">
+        <a href="#" class="left-arrow"><img src="images/left-arrow.png" /></a>
+        <a href="#" class="right-arrow"><img src="images/right-arrow.png" /></a>
+        <div class="carrusel">
+            <div class="product" id="product_0">
+                <img src="gallery/01.jpg" width="195" height="100" />
+                <h5>Lorem ipsum 1</h5>
+                <p>165.00 €</p>
+            </div>
+            <div class="product" id="product_1">
+                <img src="gallery/02.jpg" width="195" height="100" />
+                <h5>Lorem ipsum 2</h5>
+                <p>100.00 €</p>
+            </div>
+            <div class="product" id="product_2">
+                <img src="gallery/03.jpg" width="195" height="100" />
+                <h5>Lorem ipsum 3</h5>
+                <p>250.00 €</p>
+            </div>
+            <div class="product" id="product_3">
+                <img src="gallery/01.jpg" width="195" height="100" />
+                <h5>Lorem ipsum 4</h5>
+                <p>75.00 €</p>
+            </div>
+            <div class="product" id="product_4">
+                <img src="gallery/02.jpg" width="195" height="100" />
+                <h5>Lorem ipsum 5</h5>
+                <p>65.00 €</p>
+            </div>
+            <div class="product" id="product_5">
+                <img src="gallery/03.jpg" width="195" height="100" />
+                <h5>Lorem ipsum 6</h5>
+                <p>40.00 €</p>
+            </div>
+        </div>
+    </div>
+    <section class="group products"><br>
+        <h2 class="group__title">Productos populares</h2>
+        <div class="container container--flex">
+            <div class="Fila__Imagenes">
+                <img src="" alt="" class="products__img">
+                <img src="" alt="" class="products__img">
+                <img src="" alt="" class="products__img">
+                <img src="" alt="" class="products__img">  
+            </div>
+            <div class="Fila__Precio">
+                <div class="products__price price1">$59.999 o 3.000 Puntos</div>
+                <div class="products__price price2">$59.999 o 3.000 Puntos</div>
+                <div class="products__price price3">$59.999 o 3.000 Puntos</div>
+                <div class="products__price price4">$59.999 o 3.000 Puntos</div>    
+            </div>
+            <div class="Fila__Info">
+                <div class="products__info info1">Más info</div>
+                <div class="products__info info2">Más info</div>
+                <div class="products__info info3">Más info</div>
+                <div class="products__info info4">Más info</div>
+            </div>
+        </div>
+    </section><br><br><br><br>
+
+    <footer class="main-footer">
+            <div class="column--33 column1">
+                <h2 class="column__title">¿Por qué usarnos?</h2>
+                <p class="column__txt column__txt1">Con solo estar registrado en ALFA-ONE, tienes envíos 
+                gratis en miles de productos seleccionados.</p>
+            </div>
+            <div class="column--33 column2">
+                <h2 class="column__title">Contáctanos</h2>
+                <p class="column__txt">Calle 123 - Barranquilla, Colombia</p>
+                <p class="column__txt">Teléfono: 999-9999-999</p>
+                <p class="column__txt">alfa-one@gmail.com</p>
+            </div>
+            <div class="column--33 column3">
+                <h2 class="column__title">Siguenos en nuestras redes</h2>
+                <p class="column__txt"><a href="" class="icon-facebook">Facebook</a></p>
+                <p class="column__txt"><a href="" class="icon-twitter">Siguenos en Twitter</a></p>
+                <p class="column__txt"><a href="" class="icon-youtube">Visita nuestro canal</a></p>
+            </div>
+            <p class="copy">@2022 ALFA-ONE | Todos los derechos reservados</p>
+    </footer>
+</body>
+
+</html>

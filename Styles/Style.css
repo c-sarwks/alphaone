@@ -1,0 +1,236 @@
+/*
+----------------------------------- Fuentes ----------------------------------
+*/
+.font-robo {
+    font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
+}
+.font-poppins {
+    font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+}
+/*
+--------------------------------------Diseño general-----------------------------------------
+*/
+html {
+    overflow-y: scroll;
+    margin: 0; padding: 0; 
+    background-color:whitesmoke;
+}
+body{
+    font-family:'Pacifico', cursive;
+    overflow-x: hidden;
+}
+/*-----------------------Estilos header*-----------------*/
+.main-header{
+    position: absolute; 
+    top: 0px;
+    right: 10px;
+    background-color:whitesmoke;
+    height: 128px; 
+    text-align: center;   
+    padding-top: 0px;
+    width: 100%;
+    margin-right: -10px;
+}
+.title{
+    font-size: 1.8em;
+    color:black;
+    padding: 10px;
+    font-family: 'Pacifico', cursive;
+    font-weight: 100;
+}
+.h2{
+    font-size: 1.8em;
+    color:black;
+    padding: 10px;
+    font-family: 'Pacifico', cursive;
+    font-weight: 100;
+}
+
+
+/*----------------Estilos del menú------------------------*/
+.main-nav{
+    width: 100%;
+    position: relative;
+    z-index: 2000;
+    padding: 10px;
+}
+.main-nav ul{
+    list-style: none;
+}
+
+.menu__link, .submenu__link{
+    text-decoration: none;
+    display: block;
+    
+    padding:15px;
+    position: relative;
+    border-style: solid;
+       border-color: black;
+       border-width: 2px;
+    right: 15px;
+    width: 100px;
+    height: 10px;
+    color: black;
+    border-radius: 1px;
+    align-content: center;
+    line-height: 50%;
+}
+
+.menu__link--usuario > li{
+    float:left;
+}
+.menu{
+    position: relative;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba (0, 0, 0, .85);
+    padding: 0;
+    margin: 0;
+    height: 10px;
+    list-style: none;
+    text-align: center;
+    display: flex;
+}
+.menu li a:hover{
+    background: orange;
+}
+.menu__link--select{
+    background: orange;
+    position: relative;
+}
+.menu__link--contacto{
+    margin-right: 680px;
+}
+
+.menu__link--usuario{
+    margin-left:-30px;
+    font-family: "Open Sans";
+    font-size: 1em;
+}
+
+a[name="Inicio"] {
+    left:-5px;
+    margin-right: 10px;
+}
+
+/*----------------Estilos del Submenú*------------------------*/
+
+.submenu{
+    position: relative;
+    right: 80px;
+    background: #333333;
+    width: 120%;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+.submenu li a{
+    display: block;
+    height: 20x;
+    color: #fff;
+    font-family: "Open Sans";
+    text-decoration: none;   
+    width: 100px;
+}
+.menu li:hover .submenu{
+    visibility: visible;
+    opacity: 1;
+}
+
+/*--------------------------------------------------------------*/
+#carrusel {
+    float:left;
+    width:600px;
+    overflow:hidden;
+    height:203px;
+    position:relative;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+ 
+#carrusel .left-arrow {
+    position:absolute;
+    left:10px;
+    z-index:1;
+    top:50%;
+    margin-top:-9px;
+}
+ 
+#carrusel .right-arrow {
+    position:absolute;
+    right:10px;
+    z-index:1;
+    top:50%;
+    margin-top:-9px;
+}
+ 
+.carrusel {
+    width:4000px;
+    left:0px;
+    position:absolute;
+    z-index:0;
+}
+ 
+.carrusel>div {
+    float: left;
+    height: 203px;
+    margin-right: 5px;
+    width: 195px;
+    text-align:center;
+}
+ 
+.carrusel img {
+    cursor:pointer;
+}
+ 
+.product {
+    border:#CCCCCC 1px solid;
+}
+.mostrar{
+    height: 196px;
+}
+.btn{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    width: 120px;
+    background: green;
+    color: white;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+/*Estilos del footer*/
+
+.main-footer{
+    position: relative;
+    margin-top: 100px;
+    background: #222;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: .8em;
+    height: 280px;
+}
+.column__title{
+    font-size: 2.2em;
+    font-weight: lighter;
+    
+}
+.copy{
+    margin-top: 180px;
+    position: absolute;
+    left: 500px;
+    top: 70px;
+}
+.column--33{
+    width: 32%;
+    float: left;
+    position: relative;
+    top: 30px;
+    justify-content:  space-between;
+}
+.column1{left: 150px;}
+.column2{left: 80px;}
+.column__txt1{width: 70%;}
+
