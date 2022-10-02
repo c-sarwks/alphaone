@@ -10,99 +10,43 @@
 /*
 --------------------------------------Diseño general-----------------------------------------
 */
+
+
+/*DejaVu Sans Mono, monospace*/
+
+header{
+    font-family: 'Impact', 'fantasy';
+    font-size: 50;
+  
+   
+}
 html {
     overflow-y: scroll;
     margin: 0; padding: 0; 
-    background-color:white;
+   /* background-color:white;*/
 }
 body{
-    font-family:'Pacifico', cursive;
+  /*  font-family:'Pacifico', cursive;*/
     overflow-x: hidden;
+   
 }
 
-/*
---------------------------------------Header-----------------------------------------
-*/
-.main-header{
-    position: absolute; 
-    top: 0px;
-    right: 10px;
-    background-color:red;
-    height: 132px; 
-    text-align: center;   
-    padding-top: 0px;
+.button {
+    background-color: black;
+}
+
+/*.carousel-inner .item {
+    background-color: black;
+  }*/
+
+.carousel-inner img {
+    object-fit: contain;
     width: 100%;
-    margin-right: -10px;
+    height: 100vh;
+    max-height: 500px;
 }
 
-/*----------------Estilos del menú------------------------*/
-.main-nav{
-    width: 100%;
-    position: relative;
-    z-index: 2000;
-}
-.main-nav ul{
-    list-style: none;
-}
-
-.menu__link, .submenu__link{
-    text-decoration: none;
-    display: block;
-    
-    padding:15px;
-    position: relative;
-    border-style: solid;
-       border-color: black;
-       border-width: 2px;
-    right: 15px;
-    width: 100px;
-    height: 10px;
-    color: black;
-    border-radius: 1px;
-    align-content: center;
-    line-height: 50%;
-}
-
-.menu__link--usuario > li{
-    float:left;
-}
-.menu{
-    position: relative;
-    
-    left: 0;
-    width: 100%;
-    background: rgba (0, 0, 0, .85);
-    padding: 0;
-    margin: 0;
-    height: 10px;
-    list-style: none;
-    text-align: center;
-    display: flex;
-}
-.menu li a:hover{
-    background: orange;
-}
-.menu__link--select{
-    background: orange;
-    position: relative;
-}
-.menu__link--contacto{
-    margin-right: 680px;
-}
-
-.menu__link--usuario{
-    margin-left:-30px;
-    font-family: "Open Sans";
-    font-size: 1em;
-}
-
-a[name="Inicio"] {
-    left:-5px;
-    margin-right: 10px;
-}
-
-
+.carousel-inner{
+ height: 500px;
  
-.product {
-    border:#CCCCCC 1px solid;
 }
