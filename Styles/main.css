@@ -50,3 +50,28 @@ body{
  height: 500px;
  
 }
+
+
+  /* estilos de las imagenes en calzado*/
+
+
+  
+.our-moda .column{
+    margin-bottom: 30px;
+    text-align: center;
+}
+.our-moda__img{
+    margin: auto;
+    max-width: 350px;
+}
+.our-moda__title{
+    font-size: 1.3em;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+.our-moda__info {
+    font: 1.1e;
+    color: rgb(32, 167, 230);
+    font-weight: bold;
+    text-align:justify;
+}
