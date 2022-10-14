@@ -16,9 +16,13 @@
 
 header{
     font-family: 'Impact', 'fantasy';
-    font-size: 50;
+    font-size: 17pt;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: 10px;
   
-   
+
+ 
 }
 html {
     overflow-y: scroll;
@@ -52,6 +56,8 @@ body{
 }
 
 
+
+
   /* estilos de las imagenes en calzado*/
 
 
@@ -75,3 +81,9 @@ body{
     font-weight: bold;
     text-align:justify;
 }
+
+
+
+
+
+
