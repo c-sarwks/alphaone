@@ -2,7 +2,7 @@
 from codecs import CodecInfo
 from Config.Bd import db, ma, app
 
-class Articulo(db.Model):
+class Productos(db.Model):
     __tablename__ = 'Producto'
     Cod = db.Column(db.Integer, primary_key=True)
     Nombre = db.Column(db.String(50))
