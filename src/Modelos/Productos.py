@@ -2,14 +2,14 @@
 from codecs import CodecInfo
 from Config.Bd import db, ma, app
 
-class Productos(db.Model):
+class Producto(db.Model):
     __tablename__ = 'Producto'
-    Cod = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     Nombre = db.Column(db.String(50))
-    Precio = db.Column(db.Float())
-    PuntosC = db.Column(db.Float(50))#puntos de compra
+    Precio = db.Column(db.Float)
+    PuntosC = db.Column(db.Integer)#puntos de compra
     Tipo = db.Column(db.String(50))  #tipo de producto
-    Imagen = db.Column(db.Blob())
+    Imagen = db.Column(db.Blob)
 
     def __init__(self, Nombre, Precio, PuntosC, Tipo, Imagen):
         self.Nombre = Nombre
@@ -22,6 +22,6 @@ with app.app_context():
     db.create_all()
 
 
-class ArticulosSchema(ma.Schema):
+class ProductoSchema(ma.Schema):
     class Meta:
-        fields = ('Cod', 'Nombre', 'Precio', 'PuntosC', 'Tipo', 'Imagen')
+        fields = ('id', 'Nombre', 'Precio', 'PuntosC', 'Tipo', 'Imagen')

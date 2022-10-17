@@ -1,8 +1,8 @@
-
 from Config.Bd import db, ma, app
+from Modelos.Usuario import Usuario
 
-class Company(db.Model):
-    __tablename__ = 'Company'
+class Administrador(db.Model, Usuario):
+    __tablename__ = 'Administrador'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
 
@@ -13,6 +13,6 @@ class Company(db.Model):
 with app.app_context():
     db.create_all()
 
-class CompanySchema(ma.Schema):
+class AdministradorSchema(ma.Schema):
     class Meta:
         fields = ('id', 'name')

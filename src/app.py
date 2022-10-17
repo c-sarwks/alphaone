@@ -1,64 +1,74 @@
 from flask import Flask,render_template, redirect, url_for, flash, request, jsonify
 
-from Modelos.Articulos import ArticulosSchema, Articulo
+from Modelos.Productos import ProductoSchema, Producto
 from Config.Bd import app, db
-from Modelos.Company import Company, CompanySchema
-from Modelos.Department import Department, DepartmentSchema
-from Modelos.Employee import Employee, EmployeeSchema
+from Modelos.Administrador import Administrador, AdministradorSchema
+from Modelos.Carrito import Carrito, CarritoSchema
+from Modelos.Cliente import Cliente, ClienteSchema
 
 
-articulo_schema = ArticulosSchema()
-articulos_schema = ArticulosSchema(many=True)
+producto_schema = ProductoSchema()
+productos_schema = ProductoSchema(many=True)
 
 @app.route('/', methods=['GET'])
-def indexArticulo():
-    all_articulos = Articulo.query.all()
-    resultArticulo = articulos_schema.dump(all_articulos)
+def indexProducto():
+    all_Productos = Producto.query.all()
+    resultProductos = productos_schema.dump(all_Productos)
     #return render_template("Articulos/index.html",  articulos =resultArticulo)
-    return jsonify(resultArticulo) 
+    return jsonify(resultProductos) 
 
 @app.route('/guardar', methods=['POST'])
-def save():
+def agregar_producto():
     Nombre = request.json['Nombre']
     Precio = request.json['Precio']
+    PuntosC = request.json['PuntosC']
+    Tipo = request.json['Tipo']
+    Imagen = request.json['Imagen']
 
-    new_articulo = Articulo(Nombre, Precio)
-    db.session.add(new_articulo)
+    new_producto = Producto(Nombre, Precio, PuntosC, Tipo, Imagen)
+    db.session.add(new_producto)
     db.session.commit()
-    return articulo_schema.jsonify(new_articulo)
+    return producto_schema.jsonify(new_producto)
 
 
 @app.route('/<id>', methods=['GET'])
-def get_one_articulo(id):
-    articulo = Articulo.query.get(id)
-    return articulo_schema.jsonify(articulo)
+def buscar_producto(id):
+    producto = Producto.query.get(id)
+    return producto_schema.jsonify(producto)
 
 @app.route('/<id>', methods=['PUT'])
-def update_articulo(id):
-    articulo = Articulo.query.get(id)
+def editar_producto(id):
+    producto = Producto.query.get(id)
     Nombre = request.json['Nombre']
     Precio = request.json['Precio']
+    PuntosC = request.json['PuntosC']
+    Tipo = request.json['Tipo']
+    Imagen = request.json['Imagen']
     
-    articulo.Nombre = Nombre
-    articulo.Precio = Precio
+    producto.Nombre = Nombre
+    producto.Precio = Precio
+    producto.PuntosC = PuntosC
+    producto.Tipo = Tipo
+    producto.Imagen = Imagen
     db.session.commit()
-    return articulo_schema.jsonify(articulo)
+    return producto_schema.jsonify(producto)
 
 @app.route('/<id>', methods=['DELETE'])
-def Delete_articulo(id):
-    articulo = Articulo.query.get(id)
-    db.session.delete(articulo)
+def eliminar_producto(id):
+    producto = Producto.query.get(id)
+    db.session.delete(producto)
     db.session.commit()
-    return articulo_schema.jsonify(articulo)
+    return producto_schema.jsonify(producto)
 
+"""
 @app.route('/dostablas', methods=['GET'])
 def dostablas():
     results = db.session.query(Employee, Department).join(Department).all()    
     for employee, department in results:
         print(employee.name, department.name)
     return "dato"
-    
-
+"""
+"""
 @app.route('/trestablas',methods=['GET'])
 def trestabla():
     results = db.session.query(Employee, Department, Company). \
@@ -66,7 +76,8 @@ def trestabla():
     for employee, department, company in results:
         print(employee.name, department.name, company.name)
     return "Dato"
-
+"""
+"""
 @app.route('/trestablaconfiltro', methods=['GET'])
 def trestablaconfiltro():
     results = db.session.query(Employee.name, Employee.salary).join(Department).join(Company). \
@@ -75,6 +86,7 @@ def trestablaconfiltro():
     for result in results:
         print(result)
     return 'Dato'
+"""
 
 
 #Iniciamos app para que se ejecute en un puerto#
