@@ -1,14 +1,14 @@
 
 from Config.Bd import db, ma, app
+from Modelos.Cliente import Cliente
 
 class Carrito(db.Model):
     __tablename__ = 'Carrito'
     id = db.Column(db.Integer, primary_key=True)
-    doc_cliente = db.Column(db.Integer, db.ForeignKey('Cliente.documento'))
+    doc_cliente = db.Column(db.Integer, db.ForeignKey('Cliente.documento'),nullable=True)
     cantidad = db.Column(db.Integer)
 
-    def __init__(self, id, doc_cliente, cantidad):
-        self.id = id
+    def __init__(self, doc_cliente, cantidad):
         self.doc_cliente = doc_cliente
         self.cantidad = cantidad
 

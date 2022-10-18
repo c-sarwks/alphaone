@@ -1,4 +1,3 @@
-
 from codecs import CodecInfo
 from Config.Bd import db, ma, app
 
@@ -9,7 +8,7 @@ class Producto(db.Model):
     Precio = db.Column(db.Float)
     PuntosC = db.Column(db.Integer)#puntos de compra
     Tipo = db.Column(db.String(50))  #tipo de producto
-    Imagen = db.Column(db.Blob)
+    Imagen = db.Column(db.LargeBinary)
 
     def __init__(self, Nombre, Precio, PuntosC, Tipo, Imagen):
         self.Nombre = Nombre

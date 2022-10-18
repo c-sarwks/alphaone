@@ -1,7 +1,7 @@
 from Config.Bd import db, ma, app
 from Modelos.Usuario import Usuario
 
-class Administrador(db.Model, Usuario):
+class Administrador(db.Model):
     __tablename__ = 'Administrador'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))

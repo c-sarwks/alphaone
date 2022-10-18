@@ -2,7 +2,7 @@
 from Config.Bd import db, ma, app
 from Modelos.Usuario import Usuario
 
-class Cliente(db.Model, Usuario):
+class Cliente(db.Model):
     __tablename__ = 'Cliente'
     documento = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(50))

@@ -1,4 +1,4 @@
-from flask import Flask,render_template, redirect, url_for, flash, request, jsonify
+from flask import Flask, render_template, redirect, url_for, flash, request, jsonify
 
 from Modelos.Productos import ProductoSchema, Producto
 from Config.Bd import app, db

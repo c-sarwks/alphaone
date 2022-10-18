@@ -7,8 +7,7 @@ class Usuario(db.Model):
     contraseña = db.Column(db.String(50))
     rol = db.Column(db.String(50))
 
-    def __init__(self, id, email, contraseña, rol):
-        self.id = id
+    def __init__(self, email, contraseña, rol):
         self.email = email
         self.contraseña = contraseña
         self.rol = rol
