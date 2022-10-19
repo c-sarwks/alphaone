@@ -17,4 +17,4 @@ with app.app_context():
 
 class UsuarioSchema(ma.Schema):
     class Meta:
-        fields = ('id', 'email', 'contraseña', 'rol')
+        fields = ('id','email', 'contraseña', 'rol')

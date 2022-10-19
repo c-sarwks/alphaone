@@ -1,10 +1,11 @@
 from flask import Flask, render_template, redirect, url_for, flash, request, jsonify
 
-from Modelos.Productos import ProductoSchema, Producto
+from Modelos.Producto import ProductoSchema, Producto
 from Config.Bd import app, db
-from Modelos.Administrador import Administrador, AdministradorSchema
+#from Modelos.Administrador import Administrador, AdministradorSchema
 from Modelos.Carrito import Carrito, CarritoSchema
 from Modelos.Cliente import Cliente, ClienteSchema
+from Modelos.Usuario import Usuario, UsuarioSchema
 
 
 producto_schema = ProductoSchema()
@@ -59,6 +60,15 @@ def eliminar_producto(id):
     db.session.delete(producto)
     db.session.commit()
     return producto_schema.jsonify(producto)
+
+def producto_descuento(id,descuento):
+    Producto = Producto.query.get(id)
+    Precio = request.json['Precio']
+    newPrecio = (Precio*descuento)+Precio  #Descuento es un porcentaje
+    return newPrecio
+
+def login(email,contraseña):
+    Usuario = Usuario.query.get(email)
 
 """
 @app.route('/dostablas', methods=['GET'])
