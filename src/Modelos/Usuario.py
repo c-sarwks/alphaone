@@ -2,6 +2,7 @@ from Config.Bd import db, ma, app
 
 class Usuario(db.Model):
     __tablename__ = 'Usuario'
+   # id = db.Column(db.Integer, primary_key=True)
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(50))
     contraseña = db.Column(db.String(50))
@@ -17,4 +18,4 @@ with app.app_context():
 
 class UsuarioSchema(ma.Schema):
     class Meta:
-        fields = ('id','email', 'contraseña', 'rol')
+        fields = ('id', 'email', 'contraseña', 'rol')

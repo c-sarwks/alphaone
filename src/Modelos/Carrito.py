@@ -4,6 +4,7 @@ from Modelos.Cliente import Cliente
 
 class Carrito(db.Model):
     __tablename__ = 'Carrito'
+
     id = db.Column(db.Integer, primary_key=True)
     doc_cliente = db.Column(db.Integer, db.ForeignKey('Cliente.id'),nullable=True)
     cantidad = db.Column(db.Integer)
@@ -18,4 +19,4 @@ with app.app_context():
 
 class CarritoSchema(ma.Schema):
     class Meta:
-        fields = ('id','doc_cliente', 'cantidad')
+        fields = ('id','Cliente.id', 'cantidad')

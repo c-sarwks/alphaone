@@ -11,12 +11,12 @@ class Cliente(db.Model):
     puntos = db.Column(db.Integer)
     telefono = db.Column(db.Integer)
     direccion = db.Column(db.String(50))
-    email_usuario = db.Column(db.Integer, db.ForeignKey('Usuario.id'))
-  #  cod_usuario = db.Column(db.Integer, db.ForeignKey('Department.id'))
+    id_usuario = db.Column(db.Integer, db.ForeignKey('Usuario.id'))
+
     
     salary = db.Column(db.Integer)
 
-    def __init__(self, documento, nombre, apellidos, puntos, telefono, direccion, email_usuario):
+    def __init__(self, documento, nombre, apellidos, puntos, telefono, direccion, id_usuario):
         
         self.documento = documento
         self.nombre = nombre
@@ -24,11 +24,11 @@ class Cliente(db.Model):
         self.puntos = puntos
         self.telefono = telefono
         self.direccion = direccion
-        self.email_usuario = email_usuario
+        self.id_usuario = id_usuario
 
 with app.app_context():
     db.create_all()
 
 class ClienteSchema(ma.Schema):
     class Meta:
-        fields = ('id','documento','nombre', 'apellidos', 'puntos', 'telefono', 'direccion', 'email_usuario')
+        fields = ('id','documento','nombre', 'apellidos', 'puntos', 'telefono', 'direccion', 'Usuario.id')
